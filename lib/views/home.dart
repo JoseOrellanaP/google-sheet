@@ -14,34 +14,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   List<FeedbackModel> feedbacks = <FeedbackModel>[];
-/*
-  getFeedbackFromSheet() async{
-    
-    var raw = await http.get(Uri.parse("https://script.google.com/macros/s/AKfycbwt7fITjm3Fxi6rzLf_cdMrNYcWH_Yaxx2Ry1vO8G7h4t6QN7bFZrTbjfkz2POFIEuN/exec"));
-    
-    var jsonFeedback = convert.jsonDecode(raw.body);
 
-    jsonFeedback.forEach((element){
-      print("$element >> THIS IS NEXT");
-
-      FeedbackModel feedbackModel = FeedbackModel();
-      feedbackModel.name = element['name'];
-      feedbackModel.feedback = element['feedback'];
-      feedbackModel.profilePic = element['profile_pic'];
-      feedbackModel.source = element['source'];
-      feedbackModel.sourceUrl = element['source_url'];
-
-      feedbacks.add(feedbackModel);
-      print("Length of the feedbacks ${feedbacks.length}");
-
-
-    });
-
-    //print('This is json feedback $jsonFeedback');
-
-  }
-
-*/
 
   Future<List<FeedbackModel>> getFeedbackFromSheet() async{
     return await http.get(Uri.parse("https://script.google.com/macros/s/AKfycbwt7fITjm3Fxi6rzLf_cdMrNYcWH_Yaxx2Ry1vO8G7h4t6QN7bFZrTbjfkz2POFIEuN/exec")).then((raw){
